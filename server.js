@@ -45,7 +45,8 @@ app.get("/scrape", function (req, res) {
 
       // Add the text and href of every link, and save them as properties of the result object
       result.title = $(this)
-        .children("h2")
+        .children("a")
+        .children("i")
         .text();
       result.link = $(this)
         .children("a")
@@ -67,9 +68,9 @@ app.get("/scrape", function (req, res) {
   });
 });
 
-// Route for getting all Articles from the db
+// Route for getting all articles from the db
 app.get("/articles", function (req, res) {
-  // Grab every document in the Articles collection
+  // Grab every document in the articles collection
   db.Article.find({})
     .then(function (dbArticle) {
       // If we were able to successfully find Articles, send them back to the client
