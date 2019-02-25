@@ -43,19 +43,15 @@ app.get("/scrape", function (req, res) {
     var $ = cheerio.load(response.data);
     const articleArr = [];
     // Now, we grab every h2 within an article tag, and do the following:
-    $("post-wrapper").each(function (i, element) {
+    $("h1").each(function (i, element) {
       // Save an empty result object
       var result = {};
 
       // Add the text and href of every link, and save them as properties of the result object
       result.title = $(this)
-        .find("header is")
-        .children("h1")
         .children("a")
         .text();
       result.link = $(this)
-        .find("header is")
-        .children("h1")
         .children("a")
         .attr("href");
 
