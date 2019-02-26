@@ -1,6 +1,6 @@
 # BostonGlobe-18
 
-This *Boston Globe-18*, :(The Onion): app will allow users to scrape articles from The Onion.  The user will also be able to **click** an article and leave a note or reaction to that article.  This app uses Mongo, Express, and Javascript to accomplish this task.  Cheerio is used to interpret the data that is received from the scrape.  Unfortunately, please be aware that only the first three articles have working links.  You are not able to leave notes on any more articles.
+This *The Onion-18*, app will allow users to scrape articles from The Onion.  The user will also be able to **click** an article and leave a note or reaction to that article.  This app uses Mongo, Express, and Javascript to accomplish this task.  Cheerio is used to interpret the data that is received from the scrape.  Unfortunately, please be aware that only the first three articles have working links.  You are not able to leave notes on any more articles.
 
 I am very **impressed** with the learning I have acheived in this app.  Errors help with the learning - giving me a view into to the correct and incorrect ways of coding.  I have received support from both TA's, Tutor and the instructor.  If you have any questions, please contact me through Gmail at CharityAQuinn@gmail.com.
 

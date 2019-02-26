@@ -38,7 +38,43 @@ mongoose.connect("mongodb://localhost/unit18TheOnion", {
 
 // Routes
 
-// A GET route for scraping the echoJS website
+// // A GET route for scraping the echoJS website
+// app.get("/scrape", function (req, res) {
+//   // First, we grab the body of the html with axios
+//   axios.get("http://www.theonion.com/").then(function (response) {
+//     // Then, we load that into cheerio and save it to $ for a shorthand selector
+//     var $ = cheerio.load(response.data);
+//     const articleArr = [];
+//     // Now, we grab every h2 within an article tag, and do the following:
+//     $("h1").each(function (i, element) {
+//       // Save an empty result object
+//       var result = {};
+
+//       // Add the text and href of every link, and save them as properties of the result object
+//       result.title = $(this)
+//         .children("a")
+//         .text();
+//       result.link = $(this)
+//         .children("a")
+//         .attr("href");
+
+//       articleArr.push(result);
+//       console.log(articleArr);
+
+
+//     });
+
+//     db.Article.create(articleArr)
+//       .then(() => res.send("Scrape Complete"))
+//       .catch(err => {
+//         console.log(err);
+//         res.json(err);
+//       })
+
+//   });
+// });
+
+
 app.get("/scrape", function (req, res) {
   // First, we grab the body of the html with axios
   axios.get("http://www.theonion.com/").then(function (response) {
@@ -46,7 +82,7 @@ app.get("/scrape", function (req, res) {
     var $ = cheerio.load(response.data);
     const articleArr = [];
     // Now, we grab every h2 within an article tag, and do the following:
-    $("h1").each(function (i, element) {
+    $("h1 header").each(function (i, element) {
       // Save an empty result object
       var result = {};
 
@@ -73,6 +109,10 @@ app.get("/scrape", function (req, res) {
 
   });
 });
+
+
+
+
 
 // Route for getting all articles from the db
 app.get("/articles", function (req, res) {
