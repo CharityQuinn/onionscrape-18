@@ -77,7 +77,7 @@ app.get("/scrape", function (req, res) {
     });
 
     db.Article.create(articleArr)
-      .then(() => res.send("Scrape Complete"))
+      .then((dbArticles) => res.json(dbArticles))
       .catch(err => {
         console.log(err);
         res.json(err);

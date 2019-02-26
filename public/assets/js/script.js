@@ -2,14 +2,16 @@ $(document).ready(function() {
   function getArticles() {
     $.ajax({
       method: 'GET',
-      url: '/articles'
+      url: '/scrape'
     }).then(function(dbArticles) {
       dbArticles.forEach(article => {
+ 
         $('<li>')
           .addClass('list-group-item article')
-          .append(article.title)
+          .append(`<h2>${article.title}</h2><a href="${article.link}" target="_blank">$link</a>`)
           .attr('data-id', article._id)
           .appendTo($('#articles'));
+          console.log(article.link);
       });
     });
   }
@@ -17,7 +19,7 @@ $(document).ready(function() {
   $('#articles').on('click', '.article', function() {
 
     const articleId = $(this).attr('data-id');
-    $('#note-title').val('');
+    $('#note-title').val($(this).text());
     $('#note-body').val('');
     
     $.ajax({
