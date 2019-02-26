@@ -29,8 +29,11 @@ $(document).ready(function() {
       $('#article-link')
         .attr('href', articleData.link)
         .text(articleData.title);
+        console.log("These are the links " + articleData.link);
+        
       $('#note-body').val(articleData.note.body);
       $('#note-title').val(articleData.note.title);
+      
     });
   });
 
