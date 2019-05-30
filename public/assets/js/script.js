@@ -27,7 +27,7 @@ $(document).ready(function() {
       method: 'GET'
     }).then(function(articleData) {
       console.log(articleData);
-      //$('#submit-note').attr('data-id', articleData._id).attr("data-note-id", articleData.note._id);
+      
       $('#article-link')
         .attr('href', articleData.link)
         .text(articleData.title);
